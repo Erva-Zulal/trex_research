@@ -477,16 +477,16 @@ gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanıl
 ## 4.ASP.NET
 
 <details>
-<summary>•	ASP.NET ve ASP.NET Core nedir? Avantajları, farkları</summary>
+<summary>ASP.NET ve ASP.NET Core nedir? Avantajları, farkları</summary>
 <dl>
- <dt>ASp.NET</dt>
+ <dt>ASP.NET</dt>
  <dd>.NET çerçevesi üzerinde web uygulamaları oluşturmak için açık kaynak bir web çerçevesidir.Yine microsoft tarafından geliştirilmiş ve geliştiricilerin dinamik web uygulamaları, hizmetleri ve siteleri oluşturmasına olanak sağlamak amacı ile yayınlanmıştır.</dd>
 <dt>ASP.NET Core</dt>
 <dd>Microsoft tarafından geliştirilen açık kaynak kodlu bir yazılım geliştirme platformu. ASP.NET Core, tüm ASP.NET altyapısının yeniden tasarlanarak MVC ve Web API altyapıları ile birleştirilmesini sağlamıştır.</dd>
 <dt>ASP.NET ve ASP.NET Core farkları</dt>
 <dd>ASP.NET güçlü veri tabanlı entegrasyonu sağlar ve oturum yönetimi, kimlik doğrulama ve güvenlik gibi önemli konuları ele alırken ASP.NET Core daha genel amaçlı uygulamalrın geliştirilmesi için kullanılır.</dd>
 <dt>Avantajları</dt>
- <dd>ASP.NET ,Core'a göre daha eski.Açık kaynak kodlu, platform bağımsız, modern yazılım mimarilerine uygun olan ASP.NET Core, ASP.NET ise sadece windown üzerinde çalışan stabil ve kurumsal projelerde kullanılmış bir framework.</dd>
+ <dd>ASP.NET ,Core'a göre daha eski.Açık kaynak kodlu, platform bağımsız, modern yazılım mimarilerine uygun olan ASP.NET Core, ASP.NET ise sadece windows üzerinde çalışan stabil ve kurumsal projelerde kullanılmış bir framework.</dd>
 </dl>
 </details>
 
@@ -495,7 +495,7 @@ gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanıl
  <dl>
 <dt>MVC Nedir?</dt>
 <dd>Model View Controller'in kısaltılmışıdır.Model,veritabanında verilerin çekilmesine yardımcı olur.View, görünüm katmanıdır.HTML, CSS, JS gibi
- kodların tutulduğu bölümdür.Controller,model ve view arasında kalan katmandır.Kısacası uygulama mantığını,veriyi ve kullanıcı arayüzünü birbirinden ayırarak geliştirmeyi kolaylaştıranbir mimari desenidir.Düzenli kod yazmak,bakımı kolaylaştırmak, tekrar kullanılabilirlik sağlamak ve etst edilebilirliği artırmak için kullanılır.</dd>
+ kodların tutulduğu bölümdür.Controller,model ve view arasında kalan katmandır.Kısacası uygulama mantığını,veriyi ve kullanıcı arayüzünü birbirinden ayırarak geliştirmeyi kolaylaştıranbir mimari desenidir.Düzenli kod yazmak,bakımı kolaylaştırmak, tekrar kullanılabilirlik sağlamak ve test edilebilirliği artırmak için kullanılır.</dd>
   </dl>
 </details>
 
@@ -505,7 +505,7 @@ gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanıl
 <dt>Nedir?</dt>
 <dd>Web uygulamalrında istek(request) ve yanıt(respone) arasına giren küçük yazılım bileşenidir. İsteği işler, gerekirse sonraki middlaware'e gönderir veya direkt yanıt döner.</dd>
 <dt>Nasıl Çalışır</dt>
-<dd>Kullanıcıdan gelen istek ilk middlaware gelir.Middlaware isteği işler sonra kimiddlaware aktarır ya da direkt yanıt döner.Son middlaware yanıtı üretir,yanıtu testten geçirerek kullanıcıya ulaşır. </dd>
+<dd>Kullanıcıdan gelen istek ilk middleware gelir.Middleware isteği işler sonra middleware aktarır ya da direkt yanıt döner.Son middleware yanıtı üretir,yanıtı testten geçirerek kullanıcıya ulaşır. </dd>
 </dl>
 </details>
 
