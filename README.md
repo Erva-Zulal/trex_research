@@ -262,3 +262,251 @@ Kullanıcıların geri bildirimine göre yazılımın performansı takip edilip 
  <dd>Uyarlanabilir, esnek ve çok işe sahip.Bir yapılacaktan başka bir yapılacağa geçer ve en son hepsini derler.Zahmetsiz, hızlı yüklenen bir akış kurar.</dd>
  </dl>
  </details>
+
+
+ ## 3.Backend Geliştirme Temelleri
+ <details>
+ <summary>Backend nedir?Fronted ile farkları nelerdir?</summary>
+  <dl>
+<dt>Backend</dt>
+<dd>Bir web sitesi ya da bir mobil uygulamanın arka planında çalışan, kullanıcıya görünmeyen kısımdır.Kullanıcıdan gelen talepleri alır, veritabanı veya sınıcı tarafındandaki işlemleri yapar ve sonucu fronted'e iletir.Kısacası backend sisteminin "motorudru" benzetmesi yapabiliriz.</dd>
+
+<dt>Frontend</dt>
+<dd>Web sitesi ya da bir mobil uygulamanın kullanıcının gördüğü ve etkilişimde bulunduğu kısımdır.Tasarım ve arayüzde burada bulunur.HTML, CSS ve JS frontedi oluşturan temek teknolojilerdir. </dd>   
+<dt>Aralarında ki farklar nelerdir?</dt>
+<dd>Biri arkaplanda çalışan ve kullanıcının görmediği,veritabanı ve sunucu tarafı işlemleri yöneten backend, frontedn ise kullanıcının etkileşimde bulunduğu, kullanıcıya görünen kısımdır.</dd>
+  </dl>
+ </details>
+
+ <details>
+<summary>Web sunucusu nedir? API nedir? API türleri</summary>
+<dl>
+<dt>Web server nedir?</dt>
+ <dd>Genellikle donanım ve yazılımın birlikte çalışmasını ifade eder.Web sunucusu donanımı internete bağlıdır,web ile bağlı diğer cihazlar ile veri alışverişşi yapmasını sağlar.</dd>
+ <dt>API:</dt>
+ <dd>Bir uygulamanın verilere, sunucu yazılımına veya diğer programlara ulaşabilmek için kullandığı bağlantı arayüzüdür.Bir çok veri web üzerine veya akıllı telefonlar ile API'ler sayesinde kolayca alınabiliyor.Bu da iletşimi hızlandırıyor.</dd>
+ 
+ <dt>API Türleri:</dt>
+ <ol>
+  
+ <li>Kullanım Alanına Göre:</li>
+
+ Web API:İnternet üzerinde HTTP/HTTPS ile çalışan API'ler.<br>
+ Library API:Programlama kütüphanelerinin sunduğu API'ler.(örn:Python)<br>
+ Operating System API:İletişim sisteminin sunduğu arayüzler.<br>
+ Hardware API:Donanım ile yazılım arasındaki işetişimi sağlar.<br>
+ 
+<li>Mimariye Göre:</li>
+
+Rest API:HTTP protokolü ile çalışır.JSON veya XML formatında veri döner.<br>
+SOAP API:Daha eski XML tabanlı, katı kurallara sahip.<br>
+GraphQL API:Tek bir sorguyla sadecd ihtiyaç duyulan veriyi alma imkanı verir.<br>
+gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanılan bir sistemdir.<br>
+
+  <li>Erişim Türüne Göre:</li>
+  
+  Public(açık)API:Herkesin erişimine açıktır.<br>
+  Private(özel)API:Sadece kurum içi yazılımda kullanılır.<br>
+  Partner API:Sadece belirli iş ortaklarında açılır.
+ 
+ </ol>
+</dl>
+ </details>
+
+<details>
+<summary>HTTP nedir? HTTP metodları: GET, POST, PUT, DELETE</summary>
+<dl>
+ <dt>HTTP Nedir?</dt>
+ <dd>Bu protokol, bir web tarayıcısı ile bir web sunucusu arasında ki iletişimi sağlar.İstemci(server) ve sunucu(server) arsında ki veri transferini yönetir.Tarayıcının web sitelerini görüntülemesini, dosyaları indirmesini sağlar.</dd>
+</dl>
+
+ <dt>HTTP Metotları:</dt>
+<ul>
+ <li>Get:Belirtilen URL'de ki veriyi almak için kullanılır</li>
+ <strong>Örnek:Bir e-ticaret listesinde ürün listesini görmek.</strong><br>
+  <br>
+ <li>Post:Belşirtilen URL'ye yeni bir kaynak eklemek için kullanılır.Bu metot ile form gönderimi sonocunda veriyi sunucuya ekleyebiliriz.</li>
+ <strong>Örnek:Bir siteye kayıt olurken "kaydol" dediğinde.</strong><br>
+  <br>
+ <li>Put:Belirtilen URL'de var olan bir veriyi güncellemek için kullanılır.Bu metot ile sunucuda var olan bir dosyayı güncelleyebiliriz.</li>
+  <strong>Örnek:Profil bilgilerinde "Adını ve Soyadını değiştir" dediğinde.<br></strong>
+   <br>
+ <li>Delete:Belirtilen URL'de ki dosyayı veya veriyi silmek için kullanılır.</li>
+  <strong>Örnek:Sosyal medyada kendi gönderini silmek.</strong><br>
+ <br>
+</ul>
+</details>
+
+<details>
+<summary>RESTful servislerinin çalışma mantığı</summary>
+<dd>Her şey bir kaynak olarak düşünülür.Kaynaklara URL'ler üzerinden ulaşılır, HTTP metodları ile işlem yapılır, JSON ile veri taşınır ve her istek bağımsızdır.</dd>
+
+<br>
+<ol>
+ <li>Kaynak(resource)mantığına dayanır;</li>
+<ul>
+ <li>Rest'te her şey bir kaynak(resource) larak düşünülür.</li>
+ <li>Kullanıcılar->Users</li>
+ <li>Ürünler->Poducts</li>
+ <li>Siparişler->Orders</li>
+ <li>Kaynağa erişim için Url(edpoint)kullanılır.</li>
+</ul>
+<br>
+
+<br>
+<li>HTTP metodları ile işlem yapılır;</li>
+<ul>
+<li>Get->Kaynağı getirir.</li>
+<li>Post->Yeni kaynak oluşturulur</li>
+<li>Put->Var olan kaynağı günceller</li>
+<li>Deleted->Kaynağı siler</li>
+</ul>
+<br>
+
+<br>
+<li>İşletimci(client)-Sunuc(server)bağlantısı;</li>
+<ul>
+<li>İstemci(web, mobil uygulaması) sadece isteği gönderir</li>
+<li>Sunucu(backend) isteği işler ve cevabı gönderir</li>
+<li>İkisi birbirinden bağımsız, yani bir android uygulaması ve web sitesi bir Rest servisine bağlanabilir </li>
+</ul>
+<br>
+
+<br>
+<li>Stateless(durumsuz)çalışır;</li>
+<ul>
+<li>Her istek(request)bağımsızdır</li>
+<li>sunucu önceki isteklerini hatırlamaz</li>
+<li>Gerekli bilgiler(örnek:kimlik doğrulama tokeni)her istekte tekrar gönderilir</li>
+</ul>
+<br>
+
+<br>
+<li>Veri genelde JSON formatında çalışır;</li>
+<ul>
+<li>Cevaplar anlaşılır bir formatta döner</li>
+</ul>
+<br>
+
+<br>
+<li>HTTP states kodları kullanılır;</li>
+ <ul>
+  <li>200->Başarılı</li>
+  <li>201->Kaynak oluşturur</li>
+  <li>400->Hatalı istek</li>
+  <li>401->Yetkisiz</li>
+  <li>404->Bulunamadı</li>
+  <li>500->Sunucu hatası</li>
+  <br>
+ </ul>
+</ol>
+</details>
+
+<details>
+<summary>JSON veri formatı ve kullanım amacı</summary>
+
+<dd>Heminsan tarafından okunabilir hem de makine tarafından işlenebilir bir şekilde depolamak ve değiştirmek için kullanılan metin tabanlı bir formattır.Metin tabanlı ve sade yapısı sayesinde verilerin anlaşılmasını kolaylaştırır,ayrıca çoğu programlama dili tarafından desteklendiği için farklı sistemler arasında uyumlu bir veri değişimini mümkün kılar</dd>
+
+<dt>Kullanım amacı:</dt>
+<dd>Veri değişimi, kolay okunabilir ve yazılabilir veri, programlama dilleri arasında uyumluluk,API ve weeb servislerinde stanart,veri yapılarının baait temsilini sağlar.</dd>
+</details>
+
+<details>
+<summary>SOAP ve GraphQL nedir, REST’ten farkları</summary>
+
+<dl>
+<dt>SOAP</dt>
+<dd>Bilgisayar ağlarında web hizmetlerinin uygulanmasında yapılandırılmış bilgi alışverişi için kullanılan bir protokoldür.</dd>
+
+<dt>GraphQL</dt>
+<dd>API'ler için bir sorgu dili ve mevcut verilerle bu sorguları yanıtlamak için bir çalışma ortamıdır.</dd>
+</dl>
+
+<h3>SOAP vs GraphQL vs REST Temel Karşılaştırması</h3>
+
+<table border="1">
+    <body>
+        <tr>
+            <td>Özellik</td>
+            <td>SOAP</td>
+            <td>REST</td>
+            <td>GraphQL</td>
+    </td>
+        </tr>
+     
+  <tr>
+            <td>Türü</td>
+            <td>Protokol</td>
+            <td>Mimari tarz</td>
+            <td>Sorgu dili</td>
+        </tr>
+        <tr>
+            <td>Veri Formatı</td>
+            <td>XML</td>
+            <td>JSON(en çok kullanılan),XML</td>
+            <td>JSON</td>
+        </tr>
+        <tr>
+            <td>Endpoint</td>
+            <td>Çok Sayıda</td>
+            <td>Birden fazla</td>
+            <td>Tek bir tane</td>
+        </tr>
+        <tr>
+           <td>Esneklik</td>
+           <td>Düşük</td>
+           <td>Orta</td>
+           <td>Yüksek</td>
+       </tr>
+        <tr>
+           <td>Performans</td>
+           <td>Ağır</td>
+           <td>Hafif ve hızlı</td>
+           <td>Daha esnek ama backend için yorucu</td>
+       </tr>
+        <tr>
+           <td>Kullanım Alanı</td>
+           <td>Bankacılık,kurumsal</td>
+           <td>Web servisleri,mobil API</td>
+           <td>Modern web ve mobil uygulamalar</td>
+       </tr>
+</details>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
