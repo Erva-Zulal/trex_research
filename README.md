@@ -630,6 +630,7 @@ gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanıl
 <pre>
  SELECT * FROM Products
 WHERE Price > 10000;
+</pre>
 
  <br><h3>3.Sıralama(OrderBy)</h3>
 <h5>LINQ</h5>
