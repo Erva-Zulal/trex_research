@@ -509,21 +509,266 @@ gRPC API:Google'ın geliştirdiği, hızlı ve verimli iletişim için kullanıl
 </dl>
 </details>
 
+<details>
+<summary>Dependency injection (DI) nedir,neden önemlidir?</summary>
+<dl>
+ <dt>Nedir</dt>
+ <dd>Bir sınıfın,nesnenin, bağımlılıklardan kurtulmasını amaçlayan ve o nesneyi olabildiğince bağımsızlaştıran bir programlama tekniğidir.</dd>
+ <dt>Nedenn Önemlidir</dt>
+ <dd>Kodun daha esnek,test edilebilir,yeniden kullanılabilir ve sürdürülebilir olmasını sağlar.</dd>
+</dl>
+</details>
+
+<details>
+<summary>Katmanlı Mimari (Layered Architecture)</summary>
+<h3>Presentation, Business, Data Access katmanları</h3>
+<dl>
+<dt>Presentation:</dt>
+ <dd>Kullanıcı ile etkileşimde bulunulan katmandır.Kullanıcı arayüzü oluşturan,web siteleri,masaüstü uygulamalrı, mobil uygulamalar gibi kullanıcı arayüzleri sağlayan kodlar içerir.</dd>
+</dl>
+
+<dl>
+<dt>Business:</dt>
+<dd>Uygulamanın iş kurallarını barındıran katmandır.Kullanıcıdan gelen isteklerin nasıl işleneceğini, hangi validasyonlardan geçeceğini ve hangi işlemlerin yapılacağını tanımlar.Veri erişim, sunum arsında köprü görevi görür.</dd>
+1.İş Kurallarını Uygulamak;<br>
+2.Validasyon (doğrulama) yapmak;<br>
+3.Servisler Arası Kordinasyon;<br>
+4.Transaction Yönetimi<br>
+</dl>
+
+<dl>
+<dt>Data Accsess:</dt>
+<dd>Verilerin okunması,silinmesi, yazılması,güncellenmesi işlemlerini kapsar.</dd>
+</dl>
+
+![1_vNZs7q1OgPc2yDaiGJpCwg](https://github.com/user-attachments/assets/d30ecea0-7828-46b9-a568-52593dbe5ffe)
+<dl>
+<dt>Service & Repository Patten</dt>
+<dd>Sorumlıulukları ayırmak ve kodun daha okunabilir, test edilebilir, sürdürülebilir olmasını sağlamaktadır.</dd>
+</dl>
+</details>
+
+<details>
+ <summary>Clean Architecture</summary>
+ <dl>
+  <dt>Domain:Bilgi,etki,faaliyet alanını ifade eder.Bir iş alanında veya projede geçerli olan konu ve kaosam alanıdır.</dt>
+  <dt>Aplication:Domain katmanlarını kullanarak uygulama hizmetini ve işlemini sağlar.Domain nesnelerini kullanarak işlemleri yönetir ve uygulama hizmetlerini expose(dışa aktarma)ederiz.</dt>
+  <dt>Infrastructure:Türkçe karşılığı"altyapı" olan infrastructure, uygulamanın teknik detaylarını barındıran katmandır.Domain veya aplication katmanlarında yer alan iş kurallarının çalışabilmesi için gerekli araçları ve teknolojileri sağlar.</dt>
+<img width="500" height="250" alt="download" src="https://github.com/user-attachments/assets/594c0746-6ee9-429a-a8f7-16f9b9461331" />
+ </dl>
+</details>
 
 
+<details>
+ <summary>Bağımlılıkların dışa akması ilkesi</summary>
+ <br>
+ Bağımlılıkların dışa akma ilkesi, yüksek seviye modüllerin düşük seviye modüllere doğrudan bağlı olmaması gerektiğini, ikisinin de soyutlamalara (interface/abstract) bağımlı olması gerektiğini söyler. Bu sayede kod esnek, test edilebilir ve değişime dayanıklı olur.
+</details>
 
 
+## 5.Veritabanı ve ORM
+
+<details>
+ <summary>SQL nedir?</summary>
+ Veri yönetimi amacı ile kullanılan bir dildir.Yazılan komutlar aracılığı ile veritabanına yeni veriler eklenebilir, veriler değiştirilebilir, kayıtlı veriler silinebilir ve verilerden özel  listeler oluşturulabilir.
+</details>
 
 
+<details>
+<summary>İlişkisel ve İlişkisel Olmayan Veritabanları Arasında ki Farklar</summary>
+İlişkisel veritabanları yapılandırılmış ve ilşki veriler için ideal iken, ilişkisel olmayan veri tabanları esnek, ölçeklendirilebilir ve büyük veri ugulamalrı için uuygundur.
+</details>
 
 
+<details>
+ <summary>ORM nedir? Entity Framework Core nedir?</summary>
+ <dl>
+  <dt>ORM:</dt>
+  <dd>İlişkisel veritabanı ile uygulamamız arasında bir köprü görevi gören ilişkileri ve nesneleri yönetmek için kullanılan bir tekniktir.</dd>
+  <dt>Entity Framework Core nedir?</dt>
+  <dd>Microsoftun .Net için geliştirdiği modern ORM kütüphanesidir.Geliştiricilerin SQL yazmadan veritabanı tablolarını C# sınıfları ile yönetmesini sağlar</dd>
+ </dl>
+</details>
 
+<details>
+ <summary>DbContext nedir, nasıl kullanılır?</summary>
+ <dl>
+  <dt>DbContect</dt>
+  <dd>EF Core ve uygulama arasında ki ana köprüdür.Uygulamanın veritabanı ile etkileşimini yöneten merkezi bileşendir.</dd>
+ <dt>Nasıl Kullanılır</dt>
+  <dd>Tabloları(DbSet) aracılığı ile C# sınıfları olarak temsil eder.Bu sayede CRUD işlemleri(ekleme,silme,okuma,güncelleme) kolayca yapılır.Veritabanı bağlantısı yönetilir ve migration işlemleri ile şema güncellemleri kontrol edilir. </dd>
+ </dl>
+</details>
 
+<details>
+ <summary>LINQ nedir? En çok kullanılan LINQ ifadeleri</summary>
+ <dl>
+  <dt>LINQ Nedir</dt>
+  <dd>C# ve .Net veri kaynaklarını nesne tabanlı ve tip güvenli bir şekilde sorgulamayı sağlayan bir dil bütünleşik sorgu teknolojisidir.</dd>
+ <dt>En Çok Kullanılan LINQ İfadeleri</dt>
+  <dd>Where-Select-OrderBy-First-Single-Count-Any-All-GroupBy-Join-Distinct-Take</dd>
+ </dl>
 
+<br><h3>1.Tüm Kayıtları Getirme</h3>
+<h5>LINQ</h5>
+<pre>
+ var products = context.Products.ToList();
+</pre>
+<h5>SQL</h5>
+<pre>
+ SELECT * FROM Products;
+</pre>
 
+<br><h3>2.Koşullu Filtreleme(Where)</h3>
+<h5>LINQ</h5>
+<pre>
+ var expensiveProducts = context.Products
+                               .Where(p => p.Price > 10000)
+                               .ToList();
+</pre>
+<h5>SQL</h5>
+<pre>
+ SELECT * FROM Products
+WHERE Price > 10000;
 
+ <br><h3>3.Sıralama(OrderBy)</h3>
+<h5>LINQ</h5>
+<pre>
+var sortedProducts = context.Products
+                            .OrderBy(p => p.Price)
+                            .ToList();
+</pre>
+<h5>SQL</h5>
+<pre>
+SELECT * FROM Products
+ORDER BY Price ASC;
+</pre>
 
+ <br><h3>4. Seçim / Projeksiyon (SELECT belirli sütunlar)</h3>
+<h5>LINQ</h5>
+<pre>
+var productNames = context.Products
+                          .Select(p => p.Name)
+                          .ToList();
+</pre>
+<h5>SQL</h5>
+<pre>
+SELECT Name FROM Products;
+</pre>
 
+<br><h3>5. İlk kaydı alma (TOP / LIMIT)</h3>
+<h5>LINQ</h5>
+<pre>
+var firstProduct = context.Products.FirstOrDefault();
+</pre>
+<h5>SQL</h5>
+<pre>
+SELECT TOP 1 * FROM Products;
+</pre>
+</details>
+
+ <details>
+  <summary>Code-First ve Database-First yaklaşımı nedir?</summary>
+  <dl>
+   <dt>Code First</dt>
+   <dd>Var olan bir veri tabanı temel alınarak otomatik olarak kod tarafından entity(varlık)modelleri oluşturulur.</dd>
+   <dt>Database First</dt>
+   <dd>Mevcut bir veritabanı üzerinden tersine mühendislik yaparak EF  ile model sınıflarını otomatik oluşturmamıza olanak tanır.</dd>
+  </dl>
+
+  <h3>Code First ve Database-First karşılaştırması</h3>
+  <table border="1">
+    <body>
+        <tr>
+            <td>Özellik</td>
+            <td>Code-First</td>
+            <td>Database-First</td>
+    </td>
+        </tr>
+        <tr>
+            <td>Başlangıç Noktası</td>
+            <td>Önce C# sınıfları (entity) yazılır, veritabanı sonra oluşturulur.</td>
+            <td>Mevcut veritabanı kullanılır, sınıflar otomatik üretilir</td>
+    </td>
+        </tr>
+        <tr>
+            <td>Geliştirme Yönü</td>
+            <td>Kod merkezli, geliştirici veritabanı şemasını migration ile yönetir.</td>
+            <td>Veritabanı merkezli, kod veritabanından türetilir.</td>
+    </td>
+        </tr>
+        <tr>
+            <td>Migration Desteği</td>
+            <td>Evet, değişiklikler kolayca uygulanır.</td>
+            <td>Sınırlı, veritabanı değişiklikleri genellikle manuel yapılır.</td>
+    </td>
+        </tr>
+        <tr>
+            <td>Kontrol</td>
+            <td>Geliştiriciye tam kontrol sağlar.</td>
+            <td>Var olan veritabanı ile hızlı entegrasyon sağlar.</td>
+    </td>
+        </tr>
+        <tr>
+            <td>Kullanım Alanı</td>
+            <td>Yeni projeler ve hızlı prototipleme için uygundur.</td>
+            <td>Mevcut veritabanları veya büyük projelerde tercih edilir.</td>
+    </td>
+        </tr>
+  <tr>
+            <td>Örnek Araç/Komut</td>
+            <td>Add-Migration, Update-Database</td>
+            <td>Scaffold-DbContext</td>
+    </td>
+        </tr>
+    </table>
+    </details>
+ </body>
+
+<details>
+<summary>Temel SQL sorguları: SELECT, INSERT, UPDATE, DELETE</summary>
+ Veritabanı ile etkileşim kurmak için kullanılan komutlardır.
+ <dl>
+  <dt>Select:</dt>
+  <dd>Veritabanından veri okur.</dd>
+  <dt>Örnek:</dt>
+  <pre>
+  SELECT * FROM Products;
+SELECT Name, Price FROM Products WHERE Price > 10000;
+  </pre>
+  </dl>
+
+<dl>
+<dt>Updtae:</dt>
+<dd>Mevcut kayıtları günceller.</dd>
+ <dt>Örnek:</dt>
+ <pre>
+ UPDATE Products
+SET Price = 13000
+WHERE Name = 'Laptop';
+ </pre>
+ </dl>
+
+<dl>
+<dt>Insert:</dt>
+<dd>Yeni kayıt ekler</dd>
+<dt>Örnek:</dt>
+ <pre>
+ INSERT INTO Products (Name, Price)
+VALUES ('Laptop', 12000);>
+ </pre>
+ </dl>
+
+<dl>
+<dt>Delete:</dt>
+<dd>Kayıtlı verileri siler.</dd>
+ <dt>Örnek:</dt>
+ <pre>
+DELETE FROM Products
+WHERE Name = 'Laptop';
+ </pre>
+</dl>
+</details>
 
 
 
