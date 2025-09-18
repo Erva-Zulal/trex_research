@@ -773,18 +773,47 @@ WHERE Name = 'Laptop';
 
 ## 6.Güvenlik ve Performans
 
+<details>
+ <summary>Authentication vs Authorization nedir?</summary>
+ <dl>
+  <dt>Authentication(AuthN):</dt>
+  <dd>Kimlik doğrulama,doğruluğunu kanıtlama anlamına gelmektedir.Gelişmiş web teknolojili sistemler genelde bir uygulama yada verilere erişimi güvence altına almak için kullanır.Sizin beraber girmiş olduğunuz parola ve kullanıcı adını veritabanında kayıtlı olan bilgilerle karşılaştırır.Sistem eşleşme sağlanır ise erişim izni verir.Sistem yalnızca sizin doğru parola ve kullanıcı adını gireceğinizi varsayar ve bunlar eşleşince erişim açılır.</dd>
+  <dt>Authorization(AuthZ):</dt>
+  <dd>Kimlik doğrulama işlemi sonrasında,belirli kaynaklara veya hizmetlere erişimini kontrol etme süreci yani AuthZ kullanıcının nereye erişebileceğini ve hangi kaynakları görüntüleyebileceğine karar verir.Belirli roller, gruplar veya izin seviyeleri ile ilişkilendirilmiş politikalar ve kurallar kullanır.</dd>
+ </dl>
+</details>
 
+<details>
+ <summary>JWT (JSON Web Token) nedir, nasıl çalışır?</summary>
+ <dl>
+  <dt>JWT(JSON Web Token):</dt>
+  <dd>EFC7519 endüstri standartıdır.Kullanıcının doğrulanması, web servis güvenliği, bilgi güvenliği gibi birçok konuda kullanılabilir.</dd>
+  <dt>Nasıl Çalışır:</dt>
+  <dd>Kullanıcı giriş yapar, sunucu kimliği doğrular ve başarılı olur ise bir JWT üretir(örn:email, id, role)JWT istemciye gönderilir.Kullanıcı her istek yaptığında JWT'yi AuthZ:Bearer<token> başlığı ile gönderir.Sunucu gelen JWT'nin imzasını doğrular, süresinin dolup dolmadığını kontrol eder, içindeki bilgileri okuyup yetki verir.Eğer geçerli ise istek işlenir, değil ise 401 Unauthorized döner.</dd>
+ </dl>
+</details>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<details>
+ <summary>OAuth, OAuth2.0, OpenIddict, OpenID nedir? Aralarındaki ilişki </summary>
+ <dl>
+  <dt>OAuth:</dt>
+  <dd>Bir uygulamanın başka bir uygulamaya erişim izni vermeyi sağlayan protokol</dd>
+ </dl>
+ <dl>
+  <dt>OAuth 2.0:</dt>
+  <dd>Protokolün güncel ve en çok kullanılan versiyonudur.</dd>
+ </dl>
+ <dl>
+  <dt>OpenIddict:</dt>
+  <dd>ASP.Net üzerinde çalışan ve OAuth 2.0 ile OpenID Connect protokollerini destekleyen açık kaynaklı bir kimlik ve yetkilendirme sunucusudur.Uygulamlara AuthN ve AuthZ mekanizmaları eklemeyi kolaylaştırır.</dd>
+ </dl>
+ <dl>
+  <dt>OpenID:</dt>
+  <dd>Bir kullanıcının tek bir kimlik sağlayıcısı üzerinden farklı web sitelerine veya uygulamalara güvenli giriş yapmasını sağlayan kimlik doğrulama protokolüdür.</dd>
+ </dl>
+ <dl>
+  <dt>Aralarında ki ilişki:</dt>
+  <dd>İlk olarak Oauth kullanıcı şifresini paylaşmadan üçüncü taraf uygulamalra erişim izni vermek için geliştirilen yetkilendirme protokolüdür.Daha sonra çıkan OAuth 2.0 daha güvenli, esnek ve yaygın kullanılan sürümüdür.Kullanıcının kim olduğunu doğrulamak için OpenID devreye girer ve kullanıcının nelere erişebileceğini kontrol eder.OpenIddict ise ASP.Net Core üzerinden kendi kimlik ve yetkilendirme sunucunu kurmanı sağlayan pratik bir araçtır.
+  </dd>
+ </dl>
+</details>
