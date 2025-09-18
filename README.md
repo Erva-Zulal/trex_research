@@ -771,6 +771,8 @@ WHERE Name = 'Laptop';
 </dl>
 </details>
 
+## 6.Güvenlik ve Performans
+
 
 
 
