@@ -817,3 +817,35 @@ WHERE Name = 'Laptop';
   </dd>
  </dl>
 </details>
+
+<details>
+ <summary>Performans artımı için ne yapılabilir? (AsNoTracking, IAsyncEnumerable, caching, profiling, redis)</summary>
+ <dl>
+  <dt>AsNoTracking:</dt>
+  <dd>Entity Framework Core'da sorgulanan verilerin değişiklik takibi(change tracking) yapılmadan getirilmesini sağlar.</dd>
+  <dd>Ne zaman kullanılır:Veriyi sadece okumak istiyor isen ve güncelleme yapmayacaksan.</dd>
+ </dl>
+ 
+ <dl>
+  <dt>IAsyncEnumarable(EF Core/LINQ):</dt>
+  <dd>Veriyi streoming şeklinde async olarak getirir.</dd>
+  <dd>Ne zaman kullanılır:Çok büyük tablolardan veri çekerken veya UI'ye parça parça veri gösterirken.</dd>
+ </dl>
+ 
+ <dl>
+  <dt>Cachin:</dt>
+  <dd>Sık sık kullanılan veriyi RAM'de saklar ve her sorguda veritabanına gitmek yerine önbellekten okur.</dd>
+  <dd>Ne zaman kullanılır:Sık değişmeyen verilerde.</dd>
+ </dl>
+ 
+ <dl>
+  <dt>Redis:</dt>
+  <dd>Caching'i distributed hale getirir.Yani birden fazla sunucu/servis arasında paylaşılabilir.RAM tabanlı tabanlı hızlı erişim sağlar.</dd>
+  <dd>Ne zaman kullanılır:Web uygulamalrında yüksek trafik,mikroservisler veya global sistemlerde.</dd>
+ </dl>
+ <dl>
+  <dt>Profiling:</dt>
+  <dd>Uygulamanın performansını ölçer, hangi sorguların veya kodların yavaş çalıştığını gösterir.</dd>
+   <dd>Ne zaman kullanılır:Performans problemi hissedildiğinde veya optimizasyon yapılmadan önce.</dd>
+ </dl>
+</details>
