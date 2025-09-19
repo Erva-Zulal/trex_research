@@ -863,6 +863,7 @@ WHERE Name = 'Laptop';
     <td>(1)Saldırgan savunmasız alanlara kötü amaçlı içerikleri enjekte edebilir.(2)Kullanıcı adı,parola gibi verileri veritabanından okuyabilir(3)Veritabanı verileri değiştirebilir.(4)Veritabanı üzerinde yönetim işlemleri yapılabilir.</td>
     <td>Giriş alanları.(Oturum açma,yırum,kayıt,mesaj.)</td>
    </tr>
+   </table>
   </body>
    <table border ="1">
   <body>
@@ -876,6 +877,7 @@ WHERE Name = 'Laptop';
     <td>Bu güvenlik açığından yararlanan bir saldırgan,uygulamaya komut dosyaları ekleyebilir,oturum açma bilgilerini çalabilir,web sitelerini tahrif edebilir,makinelerde kötü amaçlı yazılım geliştirebilir.</td>
     <td>Giriş alanları.(Oturum açma,yırum,kayıt,mesaj.)</td>
    </tr>
+   </table>
   </body>
  <table border ="1"> 
   <body>  
@@ -889,6 +891,7 @@ WHERE Name = 'Laptop';
    <td>Bu açıktan yararlanan saldırgan,bir oturumu ele geçirebiir,sisteme yetkisiz erişim sağlayabilir.</td>   
    <td>(1)Aynı olan oturm kimlikleri.(2)URL'de gösterilen oturum kimlikleri,oturum sabitleme saldırısına neden olabilir.(3)Oturum,düşük yetkili bir kullanıcı tarafından tekrar kullanılabilir.</td>   
   </tr>  
+   </table>
  </body>
   <table border ="1">
    <body> 
@@ -902,6 +905,7 @@ WHERE Name = 'Laptop';
      <td>Güvenlik açığını kullanan saldırgan, yetkisiz dahili nesnelere erişim sağlayabilir,verileri değiştirebilir veya uygulamanın güvenliğini ihlal edebilir.</td>  
      <td>Veritabanı ile etkileşime giren URL'ler</td>  
     </tr>  
+    </table>
    </body>
    <table border ="1"> 
     <body>   
@@ -913,6 +917,7 @@ WHERE Name = 'Laptop';
       <td>Siteler arası gerçekleştirilen bir sahte taleptir.CSRF saldırısı,kötü amaçlı bir web sitesi, e-posta veya program vasıtasıyla kullanıcının tarayıcısının o anda kimliğini doğruladığı güvenlikler bir siteye istenmeyen bir eylem gerçekleştirmesine neden olduğuda meydana gelir.</td>  
       <td>Kullanıcı profil sayfaları, hesap formları, ticari işlem sayfaları.</td>  
      </tr> 
+     </table>
     </body>
     <table border ="1"> 
     <body>   
@@ -926,6 +931,7 @@ WHERE Name = 'Laptop';
       <td>Saldırhan bu açığı kullanarak, kimlik hırsızlığı, kredi kartı dolandırıcılığı veya diğer suçları gerçekleştirmek için zayıf korunan verileri çalabilir.</td>  
       <td>Uygulama veritabanı</td>  
      </tr> 
+     </table>
     </body>
     <table border ="1"> 
     <body>   
@@ -939,6 +945,7 @@ WHERE Name = 'Laptop';
       <td>(1)Kredi kartı bilgilerini çalabilir.(2)Kullanıcının kimlik bilgilerini ele geçirebilir.</td>  
       <td>Ağ üzerinde gönderilen veriler.</td>  
      </tr> 
+     </table>
     </body>
     <table border ="1"> 
     <body>   
@@ -950,6 +957,7 @@ WHERE Name = 'Laptop';
       <td>Kullanıcıları başka sayfalara gönderirken bir doğrulama yoksa, saldırgan bunu kullanarak kimlik avı, kötü amaçlı yazılım sitelerine yönlendirebilir.</td>  
       <td>Saldırgan kullanıcıya kodlanmış kötü amaçlı uzantı eklenmiş gerçek bir URL gönderebilir.Kullanıcı Url2nin ilk kısmına bakar ve fark etmeden kurban olabilir.</td>
      </tr> 
+    </table>
     </body>
    </details>
 
