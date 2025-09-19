@@ -980,3 +980,13 @@ WHERE Name = 'Laptop';
      <dd>Web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.</dd>
     </dl>
    </details>
+
+   <details>
+    <summary>ASP.NET Core ile alınabilecek önlemler (örnek: model validation, input sanitization)</summary>
+    <ul>
+     <li>Model Validation:Kullanıcıdan gelen verilerin belirli kurallarla ve kriterlere uygunluğunu kontrol etme işlemidir.[Required],[StringLenght],[Range],[EmailAddress] gibi data annotation ile alanlara zorunluluk, uzunluk, aralı ve format kısıtlamları getirebilir.ModelState.Is.Vaild kontrolü ile geçersiz veriler işleme alınmaz.</li>
+     <li>İnput Sanitization:Kullanıcıdan gelen verilerin zaarlı içeriklerden arındırılması için kullanılır.HTML veya JSkod parçalarının sisteme sızmaması için System.Text.Encoding.Web kütüphanesi ile otomatik HTML encoding yapılır.Razor viewlarda "@" ifadesi ile yazılan veriler varsayılan olarak encode edilir.Özel durumlarda HTMLEncoder, AntiXSS kütüphanesi ile girişler temizlenebilir.Ragex veya custom filtrelerle izin verilmeyen karakterler engellenebilir.</li>
+    </ul>
+   </details>
+
+   ## 7.Logging ve Hata Yönetimi
