@@ -878,7 +878,9 @@ WHERE Name = 'Laptop';
     <td>Giriş alanları.(Oturum açma,yırum,kayıt,mesaj.)</td>
    </tr>
   </body>
- <table border ="1">   <body>    <tr>  
+ <table border ="1"> 
+  <body>  
+   <tr>  
   <td>Kimlik Doğrulanması ve Oturum Yönetiminin Ele Geçirilmesi(Broken Authentication and Session Management)</td>   
   <td>Etkileri</td>   
   <td>Muhtemel Saldırı Alanları</td> 
@@ -886,7 +888,68 @@ WHERE Name = 'Laptop';
   <tr>   
    <td>web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.Kullanıcı adı, parola gibi unsurlar içerir.Oturum, oturum yada tarayıcı kapatılarak sona erdiğinde, önceki çerezler geçersiz kılınmalıdır.Aksi halde veriler halen sistemde kalacaktır.</td> 
    <td>Bu açıktan yararlanan saldırgan,bir oturumu ele geçirebiir,sisteme yetkisiz erişim sağlayabilir.</td>   
-   <td></td>   
+   <td>(1)Aynı olan oturm kimlikleri.(2)URL'de gösterilen oturum kimlikleri,oturum sabitleme saldırısına neden olabilir.(3)Oturum,düşük yetkili bir kullanıcı tarafından tekrar kullanılabilir.</td>   
   </tr>  
  </body>
-</details>
+  <table border ="1">
+   <body> 
+    <tr>   
+     <td>Güvenli Olmayan Doğrudan Nesne Frekansları(Insecure Direct Object References)</td>   
+     <td>Etkileri</td>   
+     <td>Muhtemel Saldırı Alanları</td>   
+    </tr>  
+    <tr>  
+     <td>Geliştirici,bir dosya,sizin veya veritabanı gibi dahili nesnelere ulaşım için bir referansı URL'de açığa çıkardığında zafiyet de ortaya çıkar.Saldırganbu nesnelere erişmek için kullanabilir ve yetkisiz verilere erişmek için bir saldırı oluşturabilir.Bu zafiyet gerçek kullanıcılar tarafından da istismar edilebilir. </td>  
+     <td>Güvenlik açığını kullanan saldırgan, yetkisiz dahili nesnelere erişim sağlayabilir,verileri değiştirebilir veya uygulamanın güvenliğini ihlal edebilir.</td>  
+     <td>Veritabanı ile etkileşime giren URL'ler</td>  
+    </tr>  
+   </body>
+   <table border ="1"> 
+    <body>   
+     <tr>  
+      <td>Siteler Arası İstek Sahteciliği (Cross Site Request Forgery)</td>   
+      <td>Muhtemel Saldırı Alanları</td>  
+     </tr>   
+     <tr>   
+      <td>Siteler arası gerçekleştirilen bir sahte taleptir.CSRF saldırısı,kötü amaçlı bir web sitesi, e-posta veya program vasıtasıyla kullanıcının tarayıcısının o anda kimliğini doğruladığı güvenlikler bir siteye istenmeyen bir eylem gerçekleştirmesine neden olduğuda meydana gelir.</td>  
+      <td>Kullanıcı profil sayfaları, hesap formları, ticari işlem sayfaları.</td>  
+     </tr> 
+    </body>
+    <table border ="1"> 
+    <body>   
+     <tr>  
+      <td>Güvensiz Kriptografik Depolama(Insecure Cryptographic Storage)</td>   
+      <td>Etkileri</td>   
+     <td>Muhtemel Saldırı Alanları</td> 
+     </tr>   
+     <tr>   
+      <td>Hassas veriler güvenli depolanmadığı zaman ortaya çıkan bir açıktır.Bu veriler şifreleme veya karma oluşturma(hash)kullanılmayarak uygunsuz bir şekilde depolandığında, saldırganlara karşı savunmasız olacaktır.</td>  
+      <td>Saldırhan bu açığı kullanarak, kimlik hırsızlığı, kredi kartı dolandırıcılığı veya diğer suçları gerçekleştirmek için zayıf korunan verileri çalabilir.</td>  
+      <td>Uygulama veritabanı</td>  
+     </tr> 
+    </body>
+    <table border ="1"> 
+    <body>   
+     <tr>  
+      <td>Yetkisiz Taşıma Katmanı Koruması</td>   
+      <td>Etkileri</td>   
+     <td>Muhtemel Saldırı Alanları</td>
+     </tr>   
+     <tr>   
+      <td>Kullanıcı ve sunucu arasında gerçekleşir.Uygulama üzerinde zayıf algoritmalar kullanmak veya süresi dolmuş veya geçersiz sertifikalar kullanmak SSL kullanmamak, iletişimin kullanıcılara açık olmasına izin verebilir.</td>  
+      <td>(1)Kredi kartı bilgilerini çalabilir.(2)Kullanıcının kimlik bilgilerini ele geçirebilir.</td>  
+      <td>Ağ üzerinde gönderilen veriler.</td>  
+     </tr> 
+    </body>
+    <table border ="1"> 
+    <body>   
+     <tr>  
+      <td>Doğrulanmamış Yönlendirmeler</td>   
+     <td>Etkileri</td>    
+     </tr>   
+     <tr>   
+      <td>Kullanıcıları başka sayfalara gönderirken bir doğrulama yoksa, saldırgan bunu kullanarak kimlik avı, kötü amaçlı yazılım sitelerine yönlendirebilir.</td>  
+      <td>Saldırgan kullanıcıya kodlanmış kötü amaçlı uzantı eklenmiş gerçek bir URL gönderebilir.Kullanıcı Url2nin ilk kısmına bakar ve fark etmeden kurban olabilir.</td>
+     </tr> 
+    </body>
+   </details>
