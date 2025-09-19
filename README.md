@@ -20,8 +20,7 @@ GitHub:
        <ul>
 <li>Bulut tabanlı bir sistem.</li>
 <li>Projelerin saklandığı yani depo edildiği bir sunucudur.</li>
-</ul>
-
+       </ul>
 </details>
 
 
@@ -886,7 +885,7 @@ WHERE Name = 'Laptop';
   <td>Muhtemel Saldırı Alanları</td> 
  </tr>  
   <tr>   
-   <td>web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.Kullanıcı adı, parola gibi unsurlar içerir.Oturum, oturum yada tarayıcı kapatılarak sona erdiğinde, önceki çerezler geçersiz kılınmalıdır.Aksi halde veriler halen sistemde kalacaktır.</td> 
+   <td>Web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.Kullanıcı adı, parola gibi unsurlar içerir.Oturum, oturum yada tarayıcı kapatılarak sona erdiğinde, önceki çerezler geçersiz kılınmalıdır.Aksi halde veriler halen sistemde kalacaktır.</td> 
    <td>Bu açıktan yararlanan saldırgan,bir oturumu ele geçirebiir,sisteme yetkisiz erişim sağlayabilir.</td>   
    <td>(1)Aynı olan oturm kimlikleri.(2)URL'de gösterilen oturum kimlikleri,oturum sabitleme saldırısına neden olabilir.(3)Oturum,düşük yetkili bir kullanıcı tarafından tekrar kullanılabilir.</td>   
   </tr>  
@@ -952,4 +951,24 @@ WHERE Name = 'Laptop';
       <td>Saldırgan kullanıcıya kodlanmış kötü amaçlı uzantı eklenmiş gerçek bir URL gönderebilir.Kullanıcı Url2nin ilk kısmına bakar ve fark etmeden kurban olabilir.</td>
      </tr> 
     </body>
+   </details>
+
+   <details>
+    <summary>SQL Injection, XSS, CSRF, Broken Auth gibi başlıkların kısa tanımı</summary>
+    <dl>
+     <dt>SQL Injection</dt>
+     <dd>Bir saldırganın kullanıcı tarafından sağlanan verileri manipüle ederek arka uç SQL ifadelerini değiştirmesine olanak tanıyan bir güvenlik açığı.</dd>
+    </dl>
+    <dl>
+     <dt>XSS</dt>
+     <dd>İstemci tarfından(sunuc değil)kullanıcı tarayıcında yürütülen bir sayfyaa gömülü komut çalıştırmayı hedefler.</dd>
+    </dl>
+    <dl>
+     <dt>CSRF</dt>
+     <dd>Siteler arası gerçekleştirilen bir sahte taleptir.</dd>
+    </dl>
+    <dl>
+     <dt>Broken Auth</dt>
+     <dd>Web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.</dd>
+    </dl>
    </details>
