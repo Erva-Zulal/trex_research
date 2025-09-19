@@ -849,3 +849,44 @@ WHERE Name = 'Laptop';
    <dd>Ne zaman kullanılır:Performans problemi hissedildiğinde veya optimizasyon yapılmadan önce.</dd>
  </dl>
 </details>
+
+<details>
+ <summary>Web uygulamalarında en yaygın güvenlik açıkları</summary>
+ <table border ="1">
+  <body>
+   <tr>
+    <td>SQL Enjeksiyonu(SQL Injection)</td>
+    <td>Etkileri</td>
+    <td>Muhtemel Saldırı Alanları</td>
+   </tr>
+   <tr>
+     <td>Bir saldırganın kullanıcı tarafından sağlanan verileri manipüle ederek arka uç SQL ifadelerini değiştirmesine olanak tanıyan bir güvenlik açığı.Kullanıcı girdisi, komut, sorgunun bir parçası olarak bir yorumlayıcıya gönderildiğinde ve yorumlayıcıyı istnmeyen komutları yürütmesi için kandırdığında ve yetkisiz verilere erişim sağladığında gerçekleşir.</td>
+    <td>(1)Saldırgan savunmasız alanlara kötü amaçlı içerikleri enjekte edebilir.(2)Kullanıcı adı,parola gibi verileri veritabanından okuyabilir(3)Veritabanı verileri değiştirebilir.(4)Veritabanı üzerinde yönetim işlemleri yapılabilir.</td>
+    <td>Giriş alanları.(Oturum açma,yırum,kayıt,mesaj.)</td>
+   </tr>
+  </body>
+   <table border ="1">
+  <body>
+   <tr>
+    <td>Siteler Arası Komut(Cross Site Scripting)(XSS)</td>
+    <td>Etkileri</td>
+    <td>Muhtemel Saldırı Alanları</td>
+   </tr>
+    <tr>
+    <td>İstemci tarfından(sunuc değil)kullanıcı tarayıcında yürütülen bir sayfyaa gömülü komut çalıştırmayı hedefler.Bu açıklar güvenilmeyen verileri alınıp ugun doğrulama olmadan web tarayıcısına gönderildiğinde ortaya çıkar.Tarayıcı komut dosyalarının güvenilir olup olmayacağını bilmediğinden komut dosyası çalıştırılır.saldırgan oturum açma bilgilerini ele geçirebilir.Kullanıcıyı istenmeyen web sitelerine yönlendirebilir.</td>
+    <td>Bu güvenlik açığından yararlanan bir saldırgan,uygulamaya komut dosyaları ekleyebilir,oturum açma bilgilerini çalabilir,web sitelerini tahrif edebilir,makinelerde kötü amaçlı yazılım geliştirebilir.</td>
+    <td>Giriş alanları.(Oturum açma,yırum,kayıt,mesaj.)</td>
+   </tr>
+  </body>
+ <table border ="1">   <body>    <tr>  
+  <td>Kimlik Doğrulanması ve Oturum Yönetiminin Ele Geçirilmesi(Broken Authentication and Session Management)</td>   
+  <td>Etkileri</td>   
+  <td>Muhtemel Saldırı Alanları</td> 
+ </tr>  
+  <tr>   
+   <td>web siteleri genellikle her geçerli oturum için oturum kimliği oluşturur.Kullanıcı adı, parola gibi unsurlar içerir.Oturum, oturum yada tarayıcı kapatılarak sona erdiğinde, önceki çerezler geçersiz kılınmalıdır.Aksi halde veriler halen sistemde kalacaktır.</td> 
+   <td>Bu açıktan yararlanan saldırgan,bir oturumu ele geçirebiir,sisteme yetkisiz erişim sağlayabilir.</td>   
+   <td></td>   
+  </tr>  
+ </body>
+</details>
