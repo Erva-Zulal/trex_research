@@ -990,3 +990,215 @@ WHERE Name = 'Laptop';
    </details>
 
    ## 7.Logging ve Hata Yönetimi
+<details>
+<summary>Neden loglama yapılır? Log seviyesi nedir?</summary>
+<dl>
+ <dt>Neden Loglama yapılır?</dt>
+ <dd>Loglama yapılmasının temel nedeni, bir yazılım veya sistemin davranışalrını görünür ve izlenebilir hale getirmektir. Başlıca nedenler:Hata tespit ve çözümü,sistem izleme, güvenlik,performans analizi,yasal ve operasyonel gereklilikler,raporlama ve denetim.</dd>
+ <dt>Loglama seviyeleri nelerdir:</dt>
+<dd>Bir uygulamanın oluşturduğu log mesajları önem derecesini belirtmek için kullanılan sınıflandırmadır.Her olayaynı ciddiyette olmadığından, logların anlamlı şelilde ayrıştırılması için kullanılır.Yaygın loglama seviyeleri:FATAL,ERROR,INFO,DEBUG,TRACE.</dd>
+</dl>
+ <ul>
+  <li>Fatal:Sistemin tamamen durmasına neden olan çok kritik hatalar.</li>
+  <li>Error:Uygulamanın çalışmasını engelleyen ciddi hatalar.</li>
+ <pre>_logger.LogError("Veritabanına bağlanılamadı. Connection string: {ConnectionString}", connString);</pre> 
+
+  <li>Warn:Sistemi durdurmayan ama potansiyel sorun oluşturabilecek hatalar.</li>
+  <pre>_logger.LogWarning("Disk alanı %85'e ulaştı.");
+_logger.LogWarning("Kullanıcı {UserId} yanlış şifre girdi.", userId);
+</pre>
+  <li>Info:Sistem akışı hakkında genel bilgi veren kayıtlar.</li>
+  <pre>_logger.LogInformation("Kullanıcı {UserId} giriş yaptı.", userId);
+_logger.LogInformation("Sipariş {OrderId} oluşturuldu.", orderId);
+</pre>
+  <li>Trace:En ayrıntılı log seviyesidir, adım adım tüm seviyeleri kaydeder.</li>
+ </ul>
+ </details>
+
+ <details>
+  <summary>ASP.NET Core'da logging altyapısı</summary>
+  Uygulama içerisinde meydana gelen dosyaların,hatalrın ve bilgilendirici mesajların kaydedilmesini sağlayan entegre bir sistemdir.Bu altyapı Microsoft.Extensions.Logging kütüphanesi ile gelir ve geliştiricilere logları farklı hedeflere yönlendirme imkanı tanır.Ayrıca log seviyeleri ve sağlayıcıları appsenttings.json üzerinden konfigüre edilebilir, bu sayede geliştirme ortamında daha detaylı loglar tutulurken canlı ortamda yalnızca kritik logların kaydedilmesi sağlanabilir.Bunu yanında ASP.NET Core logging altyapısı esnek ve genişletilebilirbir altyapıya sahiptir;varsayılan sağlayıcıların yanı sıra serilog, NLog, log4net gibi güçlü kütüphaneler kolayca entegre edilerek logların dosya, veritabanı veya ElasticSearch gibi sistemlere yazılması mümkündür.
+ </details>
+
+   <details>
+    <summary>Global exception handling nasıl yapılır?</summary>
+   Uygulama genelinde oluşan beklenmeyen merkezi bir noktadan yakalnaıp yönetilmesini sağlayan bir mekanizmadır.Bunun için Use ExceptionPage ile hatalarv  belirli bir sayfaya yönlendirilebilir, UseDeveloperExpentionPage geliştirme ortamında detaylı hata bilgisi gösterir, custom middleware ile tüm hatalar loglanıp özel bir yanıt döndürülebilir. ve Expention filter kullanılarak MVC projelerinde merkei hata yönetimi yapılabilir.Production ortamında genellikle custom middleware ile loglama birlikte tercih edilir.
+   </details>
+
+<details>
+ <summary>UseExceptionHandler ve ILogger nasıl kullanılır?</summary>
+ Global hata yönetimi ve loglama için birlikte kullanılır.UseExceptionHandler middleware'i ugulamada oluşan hataları merkezi bir action'a yönlendirerek kullanıcıya tutarlı bir yanıt sağlar.Ilogger ise bu hatalrın kaydedilmesi ve takip edilmesini mümkün kılar.
+</details>
+
+##  8. Yazılım Geliştirme Prensipleri
+
+<details>
+ <summary>SOLID prensipleri: Her biri için kısa açıklama ve örnek</summary>
+ <dl>
+  <dt>
+   <dd>Nesne yönelimi programlamada daha esnek, anlaşılır ve bakım yapılabilir yazılım geliştirmek için beş temel prensibi ifade eden akronimdir.</dd>
+ </dt>
+ </dl>
+
+ <ul>
+   <li>Single Reponsibility Principle:Bir sınıfın veya modülün yalnızca tek bir sorumluluğu olmalı.
+   <br>Örnek:Bir sınıf veri kaydetme veya rapor oluşturmadan sadece birini yapabilir.</li>
+   <li>Open Closed Principle:Kodlar geliştirilmeye açık, değişikliğe kapalı olmalıdır. 
+  <br> Örnek:Var olan sınıfı değiştirmek yerine, yeni işlev için sınıfı miras olarak veya arayüz ile genişletmek. </li>
+   <li>Liskov Substitution Principle:Tüketilmiş sınıflar, temel sınıflarının yerine geçebilir ve programın doğru çalışmasını bozmaz.
+   <br>Örnek:Bird sunufından türeyen Penguin sınıfı,uçma metodunu devralıyorsa sorun çıkarmamalı.</li>
+   <li>Interface Segregation Principle:Büyük arayüzler yerine, özelleşmiş ve küçük arayüzler kullanılmalı.
+  <br> Örnek:Tek bir arayüzde tüm işlemler yerine IPrinter ve IScanner ayrı olmalı.</li>
+   <li>Dependecy Inversion Principle:Yüksek seviyeli modüller, düşük seviyeli modüllere bağlı olmalıdır.
+   <br>Örnek:Sınıf doğrudan SQLDatabase'e bağlı olmak yerine, IDatabase arayüzünü kullanmalı.</li>
+ </ul>
+</details>
+
+<details>
+ <summary>Design Patterns: Singleton, Repository, Factory</summary>
+ <dl>
+  <dt>Singleton Pattern:</dt>
+  <ul>
+   <li>Bir sınıfın sadece bir örneği olmasını sağlamak ve bu örneğe global erişim imkanı vermek.</li>
+    <li>Kullanım:Konfigürasyon yöneticileri,log servisleri, veritabanı bağlantıları.</li>
+  </ul>
+  </dl>
+
+ <dl>
+  <dt>Repository Pattern:</dt>
+  <ul>
+   <li>Veri erişim katmanı soyutlamak, veritabanı işlemlerini merkezi ve  yönetilebilir hale getirmek.</li>
+    <li>Kullanım:CRUD işlemleri için veri kaynaklarıyla doğrudan uğraşmak yerine repository aracılığıyla erişmek.</li>
+  </ul>
+  </dl>
+
+   <dl>
+  <dt>Factory Pattern:</dt>
+  <ul>
+   <li>Nesne oluşturma işlemini soyutlamak ve merkezi hale getirmek.</li>
+    <li>Kullanım:Hangi sınıfın örneğin oluşturacağına, çlışma zamanında kara verilecek durumlarda kullanılır.</li>
+  </ul>
+  </dl>
+</details>
+
+<details>
+ <summary>Clean Code nedir, neden önemlidir?</summary>
+
+ <dl>
+  <dt>Clean Code Nedir?</dt>
+  <dd>İnsanlar tarafından anlaşılması ve değiştirilmesi kolay kod yazmayı ifade eden bir dizi ilkedir.Anlaşılabilir kod yazmak ister kodun geliştiricisi isterse de başka bir geliştirici tarafından kolayca anlaşılabileceği anlamına gelir.</dd>
+  <dt>Neden Önemli:</dt>
+  <dd>Geliştiriciler tarafından anlaşılmayan kodlar zamanla maliyeti artırır.Clean Code yazmak,maliyet tasarrufu sağlar. Geliştiriciler kodu anlamaya çalışırken zamanın çoğunu burada harcar.Bu zaman geleckteki her görevinden gereğinden fazla saatler alır.Clean Code:güvenirliği, esnekliği ve performansı artırır.Bu nedenle de yazılım dünyasında önemli olan bir konu olmuştur.</dd>
+ </dl>
+
+ <h4>Kötü Kod:</h4>
+ <pre>class User {
+    void SaveUser() { ... }
+    void SendEmail() { ... }
+}
+</pre>
+
+<h4>Clean Code:</h4>
+<pre>class UserRepository {
+    void Save(User user) { ... }
+}
+
+class EmailService {
+    void SendEmail(User user) { ... }
+}
+</pre>
+
+<h4>Kötü Kod:</h4>
+<pre>void Process() {
+    // 50 satır işlem
+}
+</pre>
+
+<h4>Clean Code:</h4>
+<pre>void ProcessOrder() {
+    ValidateOrder();
+    CalculatePrice();
+    SaveOrder();
+}
+</pre>
+</details>
+
+<details>
+ <summary>Layered, Clean Architecture, Microservices, Event-Driven, Hexagonal Architecture (Ports & Adapters)</summary>
+<ul>
+ <li>Layerd Architecture:Uygulama, sunum, iş mantığı, veri erişim gibi katmanlara ayrılır.Her katman sadece bir üst katmandan veri alır ve alt katmana veri gönderiri.</li>
+ <li>Clean Architecture:Uygulamanın iş mantığını dış bağımlılıklardan izole eden mimari.</li>
+ <li>Microservices:Uygulama, küçük, bağımısız servisler halinde bölünür.Her servis kendi veritabanına ve iş mantığına sahiptir.</li>
+ <li>Event-Driven Archtecture:Uygulama, olaylara tepki vererek çalışır.Producer olay  üretir, cosumer olayı dinler ve işleme alır.</li>
+ <li>Hexagonal Architecture:Uygulama iç çekirdek ve adaptörler şeklinde ayrılır.</li>
+</ul>
+</details>
+
+ <details>
+  <summary>Hangi senaryoda hangi mimari tercih edilir?</summary>
+  <table border="1">
+   <body>
+<tr>
+ <td>Mimari Türü</td>
+ <td>Kısa Açıklama</td>
+ <td>Hangi Senaryoda Tercih Edilir?</td>
+ <td>Avantajı/Dezavantajı</td>
+</tr>
+<tr>
+ <td>Monolitik</td>
+ <td>Tek kod tabanı, tüm işlevler bir arada</td>
+ <td>Küçük veya orta ölçekli projeler</td>
+ <td>Basit ve hızlı geliştirme / Büyük projede yönetimi zor</td>
+</tr>
+<tr>
+ <td>Katmanlı</td>
+ <td>Uygulama katmanlara ayrılır(UI, Business, Data)</td>
+ <td>Kurumsal uygulamalar, web projeleri</td>
+ <td>Modüler, test kolaylığı / Katman bağımlılığı artabilir</td>
+</tr>
+<tr>
+ <td>Microservices</td>
+ <td>Bağımsız küçük servislerden oluşur</td>
+ <td>Büyük ölçekli, bulut tabanlı, ölçeklenebilir sistemler</td>
+ <td>Esnek ve bağımsız deploy / Karmaşık dağıtık yapı</td>
+</tr>
+<tr>
+ <td>Event-Driven</td>
+ <td>Olaylara tepki veren asenkron yapı</td>
+ <td>Gerçek zamanlı sistemler, IoT, finans</td>
+ <td>Ölçeklenebilir / Hata yönetimi zor</td>
+</tr>
+<tr>
+ <td>Serverless</td>
+ <td>Sunucusuz, bulut üzerinde çalışan fonksiyonlar</td>
+ <td>Kısa süreli işlemler, API, mikro hizmetler</td>
+ <td>Yönetim yok, otomatik ölçeklenir / Sağlayıcıya bağımlı</td>
+</tr>
+<tr>
+ <td>MVC</td>
+ <td>Model-View-Controller ayrımı</td>
+ <td>UI odaklı web uygulamaları</td>
+ <td>Kod organizasyonu iyi / Küçük projede gereksiz karmaşıklık</td>
+</tr>
+    
+   </body>
+ </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
